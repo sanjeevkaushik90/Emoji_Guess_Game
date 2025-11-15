@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Emoji Guess Game</title>
+
+    <style>
+        .flip-card.flipped {
+            transform: rotateY(180deg);
+        }
+
+    </style>
+
+</head>
+
+<body class="bg-[#BFC8D6]">
+
+    <div class="flip-container flex justify-center items-center h-screen perspective-dramatic">
+        <div class="flip-card shadow-[0_8px_25px_rgba(0,0,0,0.15)] rounded-xl relative transform-3d duration-[0.01] w-[350px] h-[480px] ">
+
+            <!-- FRONT SIDE -->
+            <div class="card-front p-10 bg-white absolute w-full h-full [backface-visibility:hidden] rounded-xl">
+                <div id="hint" class="text-blue-500 text-lg font-semibold">Hint...</div>
+                <br><br>
+
+                <div id="emoji" class="text-amber-500 text-4xl font-bold">Emoji...</div>
+                <br><br>
+
+                <input type="text" placeholder="Enter your guess..."
+                    class="border border-gray-300 bg-gray-50 rounded-lg px-3 py-2 w-full text-gray-700 placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 hover:border-blue-400 transition-all">
+                <br><br><br>
+
+                <div class="flex justify-between">
+                    <button class="rounded-xl px-4 py-2 text-white bg-green-500 hover:bg-green-600">
+                        Submit
+                    </button>
+
+                    <button onclick="flipCard()"
+                        class="rounded-xl px-4 py-2 text-white bg-green-500 hover:bg-green-600">
+                        Answer
+                    </button>
+                </div>
+            </div>
+
+            <!-- BACK SIDE -->
+            <div class="card-back p-10 flex flex-col justify-between bg-black text-white absolute w-full h-full [backface-visibility:hidden] rounded-xl rotate-y-180 ">
+                <div class="text-center">
+
+                    <div id="answer" class="text-center text-gray-300 font-bold font-mono text-2xl">Answer</div>
+
+                </div>
+
+                <div class="flex justify-between mt-8">
+                    <button id="nextBtn" class="rounded-xl px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white">
+                        Next Guess
+                    </button>
+
+                    <button onclick="flipCard()"
+                        class="rounded-xl px-4 py-2 bg-green-500 hover:bg-green-600 text-white">
+                        Question
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script type="module" src="script.js"></script>
+
+
+</body>
+
+</html>
